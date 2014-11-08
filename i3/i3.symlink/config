@@ -163,7 +163,7 @@ workspace 1 output DVI-I-2
 # finds out, if available)
 bar {
 #        status_command      i3status
-        status_command      $HOME/bin/conky-i3bar
+        status_command      $HOME/.conky-i3bar
         position            top
         workspace_buttons   yes
         tray_output         none
