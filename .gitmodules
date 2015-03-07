@@ -7,3 +7,6 @@
 [submodule "vim/vim.symlink/bundle/tabular"]
 	path = vim/vim.symlink/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/vim.symlink/bundle/YouCompleteMe"]
+	path = vim/vim.symlink/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
