@@ -67,12 +67,11 @@ rb_prompt() {
   fi
 }
 
-directory_name() {
-  echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
+fancydan_prompt() {
+  echo '%F{def}%(?..%B%K{red}[%?]%K{def}%b )%(1j.%b%K{yel}%F{bla}%jJ%F{def}%K{def} .)%F{green}%B%*%b %F{m}%m:%F{green}%~ %(!.#.>) %F{def}'
 }
 
-export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
-#export PROMPT=$'%F{def}%(?..%B%K{red}[%?]%K{def}%b )%(1j.%b%K{yel}%F{bla}%jJ%F{def}%K{def} .)%F{green}%B%*%b %F{m}%m:%F{green}%~ %(!.#.>) %F{def}'
+export PROMPT=$'\n$(rb_prompt) $(git_dirty)$(need_push)\n$(fancydan_prompt)'
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
