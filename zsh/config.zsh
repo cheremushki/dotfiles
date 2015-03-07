@@ -7,6 +7,14 @@ fi
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
+if [[ "$(uname -s)" == "Darwin" ]]
+then
+  EDITOR="mvim"
+else
+  EDITOR="vim"
+fi
+export $EDITOR
+
 fpath=($ZSH/functions $fpath)
 
 autoload -U $ZSH/functions/*(:t)
