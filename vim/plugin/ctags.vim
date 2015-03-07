@@ -1,4 +1,4 @@
-au FileType puppet set tags=./.tags/puppet;
+au FileType puppet set tags=~/.tags/puppet;
 
 let g:tagbar_type_puppet = {
     \ 'ctagstype': 'puppet',
