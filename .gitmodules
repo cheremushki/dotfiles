@@ -1,0 +1,3 @@
+[submodule "vim/vim.symlink/bundle/puppet"]
+	path = vim/vim.symlink/bundle/puppet
+	url = git://github.com/rodjek/vim-puppet.git
