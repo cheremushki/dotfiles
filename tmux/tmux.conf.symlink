@@ -4,7 +4,7 @@ set -g mode-keys vi
 set -g xterm-keys on
 set -g base-index 1
 set -g pane-base-index 1
-set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-256color"
 unbind %
 bind | split-window -h
 bind _ split-window -v
