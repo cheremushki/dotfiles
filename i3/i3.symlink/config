@@ -36,6 +36,9 @@ bindsym $mod+d exec dmenu_run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# opens anamnesis browser with clipboard history
+#bindsym $mod+Shift+h exec --no-startup-id /usr/bin/anamnesis -b
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -99,16 +102,16 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move workspace 1
+bindsym $mod+Shift+2 move workspace 2
+bindsym $mod+Shift+3 move workspace 3
+bindsym $mod+Shift+4 move workspace 4
+bindsym $mod+Shift+5 move workspace 5
+bindsym $mod+Shift+6 move workspace 6
+bindsym $mod+Shift+7 move workspace 7
+bindsym $mod+Shift+8 move workspace 8
+bindsym $mod+Shift+9 move workspace 9
+bindsym $mod+Shift+0 move workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -116,6 +119,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# screensaver - lock screen
+bindsym Control+Mod1+L exec xscreensaver-command -l
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -143,29 +148,55 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command      i3status
+        position            top
+        workspace_buttons   yes
+        tray_output         HDMI1
+#        font pango:DejaVu Sans Mono 9
+}
+
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
+## window rules
+for_window [class="^Pidgin$"] floating enable
+assign [class="^Thunderbird$"] 1
+assign [class="^Firefox$"] 2
+assign [class="^Chromium$"] 2
+assign [class="^X-www-browser$"] 2
+assign [class="^Pidgin$"] 4
+
 ## execs
-# monitors
-exec_always --no-startup-id xrandr --output DVI-I-1 --auto --left-of DVI-I-2
+# urxvtd
+exec --no-startup-id /usr/bin/urxvtd
+# system bell
+exec --no-startup-id /usr/bin/xset -b
 # background image
 exec --no-startup-id /bin/sh ~/.fehbg
-exec --no-startup-id /usr/bin/pa-applet
+# screensaver
+exec --no-startup-id /usr/bin/xscreensaver -no-splash
+# clipboard
+exec --no-startup-id /usr/bin/clipit -d -n
+# davmail
+exec --no-startup-id /home/andrewj/bin/davmail.sh
+## workspace 1
+# irc
+exec --no-startup-id i3-msg 'workspace 1; exec --no-startup-id /home/andrewj/bin/irc.sh'
+# thunderbord
+exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/thunderbird; resize grow width 40'
+## workspace 2
+# browser
+exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/chromium'
+## workspace 3
+# shell
+exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/urxvtc'
+## workspace 4
+# pidgin
+exec --no-startup-id i3-msg 'workspace 4; exec /usr/bin/pidgin; workspace 1'
 
-# workspace assignment
-workspace 1 output DVI-I-2
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-#        status_command      i3status
-        status_command      $HOME/.conky-i3bar
-        position            top
-        workspace_buttons   yes
-        tray_output         none
-        font pango:DejaVu Sans Mono 9
-}
