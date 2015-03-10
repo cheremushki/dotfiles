@@ -39,10 +39,25 @@ setopt complete_aliases
 
 zle -N newtab
 
-#bindkey '^[^[[D' backward-word
-#bindkey '^[^[[C' forward-word
-#bindkey '^[[5D' beginning-of-line
-#bindkey '^[[5C' end-of-line
-#bindkey '^[[3~' delete-char
-#bindkey '^[^N' newtab
-#bindkey '^?' backward-delete-char
+# force this to vim mode
+bindkey -v
+bindkey "^[[7~" beginning-of-line
+bindkey "^[[8~" end-of-line
+# for inside tmux
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
+## mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
+#bindkey "\e[1;5C" forward-word
+#bindkey "\e[1;5D" backward-word
+#bindkey "\e[5C" forward-word
+#bindkey "\e[5D" backward-word
+#bindkey "\e\e[C" forward-word
+#bindkey "\e\e[D" backward-word
+
+## history
+#one history file for all open shells
+HISTFILE=~/.zhistory
+HISTSIZE=SAVEHIST=100000
+setopt incappendhistory 
+setopt sharehistory
+setopt extendedhistory
