@@ -9,3 +9,6 @@ set expandtab
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
+
+" pathogen https://github.com/tpope/vim-pathogen
+execute pathogen#infect()

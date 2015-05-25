@@ -1,0 +1,18 @@
+[submodule "vim/vim.symlink/bundle/puppet"]
+	path = vim/vim.symlink/bundle/puppet
+	url = git://github.com/rodjek/vim-puppet.git
+[submodule "vim/vim.symlink/bundle/syntastic"]
+	path = vim/vim.symlink/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/vim.symlink/bundle/tabular"]
+	path = vim/vim.symlink/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/vim.symlink/bundle/YouCompleteMe"]
+	path = vim/vim.symlink/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "vim/vim.symlink/bundle/ultisnips"]
+	path = vim/vim.symlink/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "vim/vim.symlink/bundle/snippits"]
+	path = vim/vim.symlink/bundle/snippits
+	url = https://github.com/honza/vim-snippets.git

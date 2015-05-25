@@ -4,11 +4,14 @@ set -g mode-keys vi
 set -g xterm-keys on
 set -g base-index 1
 set -g pane-base-index 1
-set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-256color"
 unbind %
 bind | split-window -h
 bind _ split-window -v
 bind - split-window -v
+
+# longer scrollback history
+set -g history-limit 15000
 
 # Toggle mouse on
 bind m \
@@ -25,3 +28,8 @@ bind M \
   set -g mouse-select-pane off \;\
   set -g mouse-select-window off \;\
   display 'Mouse: OFF'
+
+# toggle synchronise panes
+bind-key S set synchronize-panes
+
+bind y run-shell "tmux show-buffer | clipit" \; display-message "Copied tmux buffer to system clipboard"
