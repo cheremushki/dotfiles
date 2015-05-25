@@ -1,1 +1,1 @@
-path=('/home/andrew/.rbenv/bin' $path)
+path=("$HOME/.rbenv/bin" $path)
