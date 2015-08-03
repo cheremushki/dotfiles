@@ -71,9 +71,9 @@ fancydan_prompt() {
   echo '%F{def}%(?..%B%K{red}[%?]%K{def}%b )%(1j.%b%K{yel}%F{bla}%jJ%F{def}%K{def} .)%F{green}%B%*%b %F{m}%m:%F{green}%~ %(!.#.>) %F{def}'
 }
 
-export PROMPT=$'\n$(rb_prompt) $(git_dirty)$(need_push)\n$(fancydan_prompt)'
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
+  export PROMPT=$'\n$(rb_prompt) $(git_dirty)$(need_push)\n$(fancydan_prompt)'
+#  export RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
 }
 
 precmd() {
