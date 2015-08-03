@@ -192,7 +192,7 @@ exec --no-startup-id i3-msg 'workspace 1; exec --no-startup-id /home/andrewj/bin
 exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/thunderbird; resize grow width 40'
 ## workspace 2
 # browser
-exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/chromium'
+exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
 ## workspace 3
 # shell
 exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/urxvtc'
