@@ -32,4 +32,4 @@ bind M \
 # toggle synchronise panes
 bind-key S set synchronize-panes
 
-bind y run-shell "tmux show-buffer | clipit" \; display-message "Copied tmux buffer to system clipboard"
+bind y run-shell "tmux show-buffer | xclip" \; display-message "Copied tmux buffer to system clipboard"
