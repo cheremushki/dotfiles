@@ -67,12 +67,21 @@ rb_prompt() {
   fi
 }
 
+venv_prompt() {
+  if [[ -d $VIRTUAL_ENV ]]
+  then
+    echo "%{$fg_bold[yellow]%}$(basename $VIRTUAL_ENV)%{$reset_color%} "
+  else
+    echo ""
+  fi
+}
+
 fancydan_prompt() {
   echo '%F{def}%(?..%B%K{red}[%?]%K{def}%b )%(1j.%b%K{yel}%F{bla}%jJ%F{def}%K{def} .)%F{green}%B%*%b %F{m}%m:%F{green}%~ %(!.#.>) %F{def}'
 }
 
 set_prompt () {
-  export PROMPT=$'\n$(rb_prompt) $(git_dirty)$(need_push)\n$(fancydan_prompt)'
+  export PROMPT=$'\n$(rb_prompt) $(venv_prompt) $(git_dirty)$(need_push)\n$(fancydan_prompt)'
 #  export RPROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
 }
 
