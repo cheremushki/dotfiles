@@ -1,0 +1,3 @@
+---
+pkcs7_public_key: '/Users/andrewj/Documents/Projects/Code/puppet/eyaml/ctgsys_public_key.pkcs7.pem'
+pkcs7_private_key: '/Users/andrewj/Documents/Projects/Code/puppet/eyaml/ctgsys_private_key.pkcs7.pem'
