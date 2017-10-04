@@ -34,3 +34,4 @@ bind M \
 bind-key S set synchronize-panes
 
 bind y run-shell "tmux show-buffer | xclip" \; display-message "Copied tmux buffer to system clipboard"
+if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
